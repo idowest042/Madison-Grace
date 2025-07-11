@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #f5e9e0;
-            --secondary: #d8c3b8;
-            --accent: #a38f84;
-            --text: #3a3a3a;
-            --light: #fff9f5;
-            --dark: #2a2a2a;
+            --primary: #ffffff;  /* White */
+            --secondary: #f5f5f5; /* Light gray */
+            --accent: #6b8c9e;   /* Muted grey-blue */
+            --text: #333333;     /* Dark gray (almost black) */
+            --light: #ffffff;    /* White */
+            --dark: #000000;     /* Black */
+            --border: #e0e0e0;   /* Light gray border */
         }
         
         * {
@@ -34,7 +35,7 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: var(--primary);
+            background: var(--secondary);
         }
         
         ::-webkit-scrollbar-thumb {
@@ -53,13 +54,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: rgba(245, 233, 224, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
         }
         
         header.scrolled {
             padding: 15px 5%;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
         
         .logo {
@@ -189,29 +191,29 @@
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background-color: var(--primary);
-            color: var(--dark);
+            background-color: var(--accent);
+            color: white;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid var(--primary);
+            border: 2px solid var(--accent);
         }
         
         .btn:hover {
             background-color: transparent;
-            color: var(--primary);
+            color: var(--accent);
         }
         
         .btn-outline {
             background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            color: white;
+            border: 2px solid white;
             margin-left: 15px;
         }
         
         .btn-outline:hover {
-            background-color: var(--primary);
+            background-color: white;
             color: var(--dark);
         }
         
@@ -223,30 +225,11 @@
             background-color: var(--primary);
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
         
-        .about::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23a38f84" opacity="0.1"><circle cx="50" cy="50" r="40"/></svg>');
-            background-repeat: no-repeat;
-            z-index: 1;
-        }
-        
-        .about::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 300px;
-            height: 300px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23a38f84" opacity="0.1"><circle cx="50" cy="50" r="40"/></svg>');
-            background-repeat: no-repeat;
-            z-index: 1;
+        .about::before, .about::after {
+            display: none; /* Removing decorative elements for cleaner look */
         }
         
         .about-content {
@@ -264,14 +247,14 @@
         
         .about-image img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            transform: rotate(-5deg);
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.5s ease;
+            border: 1px solid var(--border);
         }
         
         .about-image:hover img {
-            transform: rotate(0deg);
+            transform: scale(1.02);
         }
         
         .section-title {
@@ -301,7 +284,8 @@
         /* Services Section */
         .services {
             padding: 100px 10%;
-            background-color: var(--light);
+            background-color: var(--secondary);
+            border-bottom: 1px solid var(--border);
         }
         
         .services-grid {
@@ -313,20 +297,22 @@
         
         .service-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 5px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
         .service-image {
             height: 250px;
             overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
         
         .service-image img {
@@ -337,7 +323,7 @@
         }
         
         .service-card:hover .service-image img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         
         .service-content {
@@ -368,6 +354,7 @@
             background-color: var(--primary);
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
         
         .gallery-title {
@@ -430,6 +417,7 @@
             border-radius: 5px;
             aspect-ratio: 1/1;
             cursor: pointer;
+            border: 1px solid var(--border);
         }
         
         .gallery-item img {
@@ -440,7 +428,7 @@
         }
         
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         
         .gallery-overlay {
@@ -469,7 +457,8 @@
         /* Testimonials */
         .testimonials {
             padding: 100px 10%;
-            background-color: var(--light);
+            background-color: var(--secondary);
+            border-bottom: 1px solid var(--border);
         }
         
         .testimonials-title {
@@ -491,10 +480,11 @@
         .testimonial {
             background-color: white;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
             display: none;
+            border: 1px solid var(--border);
         }
         
         .testimonial.active {
@@ -529,7 +519,7 @@
         .slider-dot {
             width: 12px;
             height: 12px;
-            background-color: var(--secondary);
+            background-color: var(--border);
             border-radius: 50%;
             margin: 0 8px;
             cursor: pointer;
@@ -547,6 +537,7 @@
             background-color: var(--primary);
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
         
         .booking-container {
@@ -563,14 +554,14 @@
         
         .booking-image img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            transform: rotate(5deg);
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.5s ease;
+            border: 1px solid var(--border);
         }
         
         .booking-image:hover img {
-            transform: rotate(0deg);
+            transform: scale(1.02);
         }
         
         .booking-form {
@@ -593,7 +584,7 @@
         .form-group textarea {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid var(--secondary);
+            border: 1px solid var(--border);
             border-radius: 5px;
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -605,7 +596,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(163, 143, 132, 0.2);
+            box-shadow: 0 0 0 3px rgba(107, 140, 158, 0.2);
         }
         
         .form-submit {
@@ -627,7 +618,7 @@
         /* Contact Section */
         .contact {
             padding: 100px 10%;
-            background-color: var(--light);
+            background-color: var(--secondary);
         }
         
         .contact-container {
@@ -658,7 +649,7 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background-color: var(--primary);
+            background-color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -666,6 +657,7 @@
             margin-right: 20px;
             color: var(--accent);
             font-size: 1.2rem;
+            border: 1px solid var(--border);
         }
         
         .contact-text h4 {
@@ -693,7 +685,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: var(--primary);
+            background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -701,6 +693,7 @@
             color: var(--accent);
             font-size: 1.1rem;
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
         }
         
         .social-link:hover {
@@ -711,9 +704,10 @@
         .contact-map {
             flex: 1;
             height: 400px;
-            border-radius: 10px;
+            border-radius: 5px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
         }
         
         .contact-map iframe {
@@ -892,6 +886,78 @@
             background-color: var(--accent);
         }
         
+        /* Success Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+        
+        .modal-nav-btn {
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background-color: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-nav-btn:hover {
+            background-color: var(--accent);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .about, .booking-container, .contact-container {
@@ -925,6 +991,7 @@
                 align-items: center;
                 padding-top: 50px;
                 transition: all 0.5s ease;
+                border-top: 1px solid var(--border);
             }
             
             nav ul.active {
@@ -975,6 +1042,15 @@
             
             .testimonial-text {
                 font-size: 1rem;
+            }
+            
+            .filter-btn {
+                margin: 5px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
             }
         }
     </style>
